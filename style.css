@@ -1,0 +1,121 @@
+/* Kudos Jan Verstraete https://codepen.io/janverstr/pen/PvPoaV */
+
+:root {
+  --bg-clr: #444;
+  --white: #fefefe;
+  --black: #444;
+  --red: #ed1e79;
+  --orange: #ff6200;
+  --light-grey: #ebebeb;
+  --green: #d9e021;
+  --blue: aqua;
+  --mid-grey: #ccc;
+
+  --donut-title: var(--black);
+  --donut-interior: var(--white);
+}
+
+html {
+  text-align: center;
+}
+
+body {
+  background-color: var(--bg-clr);
+}
+
+.svg-item {
+  max-width: 30%;
+  display: inline-block;
+}
+
+.svg-item {
+  width: 100%;
+  font-size: 16px;
+  margin: 0 auto;
+  animation: donutfade 1s;
+}
+
+@keyframes donutfade {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 992px) {
+  .svg-item {
+    width: 80%;
+  }
+}
+
+.donut-ring {
+  stroke: var(--light-grey);
+}
+
+.donut-segment {
+  transform-origin: center;
+}
+
+.donut-segment-1 {
+  stroke: var(--blue);
+  animation: donut1 3s;
+}
+
+.donut-percent {
+  animation: donutfadelong 1s;
+}
+
+@keyframes donutfadelong {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes donut1 {
+  0% {
+    stroke-dasharray: 0, 100;
+  }
+  100% {
+    stroke-dasharray: 69, 31;
+  }
+}
+
+.donut-text {
+  font-family: Arial, Helvetica, sans-serif;
+  fill: var(--donut-title);
+}
+
+.donut-label {
+  font-size: 0.28em;
+  font-weight: 700;
+  line-height: 1;
+  fill: #000;
+  transform: translateY(0.25em);
+}
+
+.donut-percent {
+  font-size: 0.5em;
+  line-height: 1;
+  transform: translateY(0.5em);
+  font-weight: bold;
+}
+
+.donut-subtitle {
+  font-size: 0.12em;
+  line-height: 1;
+  transform: translateY(0.5em);
+  text-align: center;
+  text-anchor: middle;
+  color: #666;
+  fill: #666;
+  animation: donutfadelong 1s;
+}
+
+.donut-hole {
+  fill: var(--donut-interior);
+}
