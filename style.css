@@ -13,6 +13,10 @@
 
   --donut-title: var(--black);
   --donut-interior: var(--white);
+
+  --first-trimester: var(--red);
+  --second-trimester: var(--green);
+  --third-trimester: var(--orange);
 }
 
 html {
@@ -54,6 +58,22 @@ body {
   .svg-item {
     width: 80%;
   }
+}
+
+.trimester {
+  stroke-width: 20;
+}
+
+.trimester-1-arc {
+  stroke: var(--first-trimester);
+}
+
+.trimester-2-arc {
+  stroke: var(--second-trimester);
+}
+
+.trimester-3-arc {
+  stroke: var(--third-trimester);
 }
 
 .donut-ring {
