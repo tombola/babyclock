@@ -36,6 +36,11 @@ h1 {
   margin-bottom: -1em;
 }
 
+#debugger {
+  margin-top: 100px;
+  display: none;
+}
+
 .svg-item {
   max-width: 100%;
   display: inline-block;
