@@ -12,8 +12,8 @@ function daysBetweenDates(date1, date2) {
   return Math.abs((date2 - date1) / oneDay);
 }
 
-function weeks(days) {
-  return days * 7;
+function daysToWeeks(days) {
+  return Math.floor(days / 7);
 }
 
 function percentRemaining(percentComplete) {
@@ -48,6 +48,11 @@ function updateProgress(percentComplete) {
   animateProgress(progressSegment, percentComplete);
 }
 
+function updateWeeks(weeks) {
+  let weeksLabel = document.getElementById("weeks");
+  weeksLabel.innerHTML = `${weeks} weeks`;
+}
+
 function getDueDate() {
   const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
   const totalDays = 40 * 7;
@@ -59,7 +64,8 @@ function getDueDate() {
 
   const elapsedDays = daysBetweenDates(conceptionDate, today);
   const remainingDays = daysBetweenDates(today, dueDate);
-
   const percentComplete = Math.round((elapsedDays / totalDays) * 100);
+
   updateProgress(percentComplete);
+  updateWeeks(daysToWeeks(elapsedDays));
 }
