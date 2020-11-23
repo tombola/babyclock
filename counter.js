@@ -12,12 +12,21 @@ function daysBetweenDates(date1, date2) {
   return Math.abs((date2 - date1) / oneDay);
 }
 
+function weeks(days) {
+  return days * 7;
+}
+
+function percentRemaining(percentComplete) {
+  return 100 - percentComplete;
+}
+
 function animateProgress(progressSegment, percentComplete) {
+  const percentRemain = percentRemaining(percentComplete);
   progressSegment.animate(
     [
       { strokeDasharray: "0 100" },
       {
-        strokeDasharray: "80 20",
+        strokeDasharray: `${percentComplete} ${percentRemain}`,
       },
     ],
     {
@@ -28,12 +37,11 @@ function animateProgress(progressSegment, percentComplete) {
   );
 }
 
-function updateProgress(percentRemaining) {
-  const percentComplete = 100 - percentRemaining;
+function updateProgress(percentComplete) {
   let progressSegment = document.getElementById("progress");
   progressSegment.setAttribute(
     "stroke-dasharray",
-    `${percentComplete} ${percentRemaining}`
+    `${percentComplete} ${percentRemaining(percentComplete)}`
   );
   let percentText = document.getElementById("percent-text");
   percentText.innerHTML = `${percentComplete}%`;
@@ -52,6 +60,6 @@ function getDueDate() {
   const elapsedDays = daysBetweenDates(conceptionDate, today);
   const remainingDays = daysBetweenDates(today, dueDate);
 
-  const percentRemaining = Math.round((remainingDays / totalDays) * 100);
-  updateProgress(percentRemaining);
+  const percentComplete = Math.round((elapsedDays / totalDays) * 100);
+  updateProgress(percentComplete);
 }
