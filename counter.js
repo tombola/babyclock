@@ -36,9 +36,30 @@ function animateProgress(progressSegment, percentComplete) {
     }
   );
 }
+function animateProgressHand(progressHand, percentDegrees) {
+  progressHand.animate(
+    [
+      { transform: "rotate(0deg)" },
+      {
+        transform: `rotate(${percentDegrees}deg)`,
+      },
+    ],
+    {
+      duration: 2000,
+      iterations: 1,
+      easing: "ease-in-out",
+    }
+  );
+}
 
 function updateProgress(percentComplete) {
   let progressSegment = document.getElementById("progress");
+  let progressHand = document.getElementById("progress-hand");
+  let percentDegrees = (percentComplete / 100) * 360;
+
+  progressHand.style.transform = `rotate(${percentDegrees}deg)`;
+  animateProgressHand(progressHand, percentDegrees);
+
   progressSegment.setAttribute(
     "stroke-dasharray",
     `${percentComplete} ${percentRemaining(percentComplete)}`

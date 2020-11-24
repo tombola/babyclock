@@ -33,8 +33,17 @@ body {
 h1 {
   font-weight: 400;
   font-size: 4em;
-  font-family: "Caveat", cursive;
-  margin-bottom: -1em;
+  font-family: "Elsie Swash Caps", cursive;
+
+  /* font-family: "Caveat", cursive;
+  font-family: "Codystar";
+  font-family: "Love Ya Like A Sister";
+  font-family: "Monofett";
+  font-family: "Fredericka the Great";
+  font-family: "Libre Barcode 128 Text";
+  font-family: "VT323";
+  */
+  margin-bottom: -0.5em;
 }
 
 #debugger {
@@ -50,7 +59,7 @@ h1 {
 svg {
   height: calc(100vh - 20em);
   min-height: calc(60vw);
-  /* border: 1px solid green; */
+  border: 1px solid green;
 }
 
 .svg-item {
@@ -89,6 +98,11 @@ svg {
 
 .trimester-3-arc {
   stroke: var(--third-trimester);
+}
+
+.birth-fortnight {
+  stroke: var(--third-trimester);
+  stroke-width: 22;
 }
 
 .donut-ring {
@@ -160,6 +174,21 @@ svg {
   fill: var(--donut-interior);
 }
 
-/* #progress {
-  transform: translate(10%, 50%);
-} */
+.clockhand {
+  transform-origin: 50px 45px;
+  stroke: var(--black);
+  opacity: 0.4;
+  /* stroke: black; */
+}
+
+#term-hand {
+  transform: rotate(333deg);
+}
+
+#progress-hand {
+  stroke-linecap: round;
+  stroke: var(--white);
+  stroke: black;
+  /* transform: rotate(333deg); */
+  stroke-width: 3px;
+}
