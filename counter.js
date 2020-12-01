@@ -79,7 +79,7 @@ function getDueDate() {
   const totalDays = 40 * 7;
   const totalMilliseconds = totalDays * oneDay;
 
-  const today = new Date("2020-11-23T00:00:00");
+  const today = new Date();
   const dueDate = new Date("2021-01-19T00:00:00");
   const conceptionDate = new Date(dueDate - totalMilliseconds);
 

@@ -59,7 +59,7 @@ h1 {
 svg {
   height: calc(100vh - 20em);
   min-height: calc(60vw);
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
 
 .svg-item {
