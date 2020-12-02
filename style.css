@@ -30,10 +30,16 @@ body {
   color: var(--white);
 }
 
-h1 {
+.title-container {
+  margin-top: 6rem;
+  margin-bottom: -4rem;
+}
+
+h1.title {
   font-weight: 400;
   font-size: 4em;
   font-family: "Elsie Swash Caps", cursive;
+  line-height: 0.2;
 
   /* font-family: "Caveat", cursive;
   font-family: "Codystar";
@@ -43,7 +49,11 @@ h1 {
   font-family: "Libre Barcode 128 Text";
   font-family: "VT323";
   */
-  margin-bottom: -0.5em;
+}
+
+.subtitle {
+  /* line-height: 4; */
+  font-size: 1em;
 }
 
 #debugger {

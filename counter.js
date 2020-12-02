@@ -74,6 +74,17 @@ function updateWeeks(weeks) {
   weeksLabel.innerHTML = `${weeks} weeks`;
 }
 
+function updateSummary(days) {
+  let remainingSummary = document.getElementById("summary");
+  const remainingWeeks = Math.floor(days / 7);
+  const daysRemainder = Math.round(days % 7);
+  summary = `due ${remainingWeeks} weeks`;
+  if (daysRemainder) {
+    summary += ` and ${daysRemainder} days`;
+  }
+  remainingSummary.innerHTML = summary;
+}
+
 function getDueDate() {
   const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
   const totalDays = 40 * 7;
@@ -89,4 +100,5 @@ function getDueDate() {
 
   updateProgress(percentComplete);
   updateWeeks(daysToWeeks(elapsedDays));
+  updateSummary(remainingDays);
 }
