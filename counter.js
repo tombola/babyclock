@@ -64,9 +64,12 @@ function updateProgress(percentComplete) {
     "stroke-dasharray",
     `${percentComplete} ${percentRemaining(percentComplete)}`
   );
-  let percentText = document.getElementById("percent-text");
-  percentText.innerHTML = `${percentComplete}%`;
   animateProgress(progressSegment, percentComplete);
+}
+
+function updatePercent(percentCompleteTerm) {
+  let percentText = document.getElementById("percent-text");
+  percentText.innerHTML = `${percentCompleteTerm}%`;
 }
 
 function updateWeeks(weeks) {
@@ -88,6 +91,7 @@ function updateSummary(days) {
 function getDueDate() {
   const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
   const totalDays = 40 * 7;
+  const earlyTermDays = 37 * 7;
   const totalMilliseconds = totalDays * oneDay;
 
   const today = new Date();
@@ -97,8 +101,10 @@ function getDueDate() {
   const elapsedDays = daysBetweenDates(conceptionDate, today);
   const remainingDays = daysBetweenDates(today, dueDate);
   const percentComplete = Math.round((elapsedDays / totalDays) * 100);
+  const percentCompleteTerm = Math.round((elapsedDays / earlyTermDays) * 100);
 
   updateProgress(percentComplete);
+  updatePercent(percentCompleteTerm);
   updateWeeks(daysToWeeks(elapsedDays));
   updateSummary(remainingDays);
 }
